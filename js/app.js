@@ -33,22 +33,8 @@ var APP = {
 			if ( project.physicallyCorrectLights !== undefined ) renderer.physicallyCorrectLights = project.physicallyCorrectLights;
 
 			this.setScene( loader.parse( json.scene ) );
-			
+
 			this.setCamera( loader.parse( json.camera ) );
-			var controls;
-
-			controls = new THREE.OrbitControls( camera, renderer.domElement );
-			controls.addEventListener( 'change', render );
-			controls.enableZoom = false;
-
-			function update(event)
-			{
-			    controls.update();
-			}
-
-			function render() {
-			    renderer.render( scene, camera );
-			}
 
 			events = {
 				init: [],
